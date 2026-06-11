@@ -7,6 +7,6 @@ on:
 
 jobs:
   bulid:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo hello world
