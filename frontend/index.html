@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>足し算アプリ</title>
+</head>
+
+<body>
+    <h1>足し算アプリ</h1>
+    <input id="num1" type="number"> +
+    <input id="num2" type="number">
+    <button onclick="calc()">計算</button>
+    <p id="result"></p>
+    <script>
+        async function calc() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            const res = await fetch(
+                `http://127.0.0.1:8000/add/?num1=${num1}&num2=${num2}`
+            );
+            const data = await res.json();
+            document.getElementById("result").textContent = data.result;
+        }
+    </script>
+</body>
+</html>
